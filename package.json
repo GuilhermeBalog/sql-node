@@ -1,0 +1,10 @@
+{
+  "name": "sequelize",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Guilherme Balog Gardino <guibalog@gmail.com> (https://guilhermebalog.github.io)",
+  "license": "MIT",
+  "dependencies": {
+    "sequelize": "^6.3.5"
+  }
+}
