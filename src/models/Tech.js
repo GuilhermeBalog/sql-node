@@ -5,7 +5,8 @@ class Tech extends Model{
     super.init({
       name: DataTypes.STRING,
     }, {
-      sequelize: connection
+      sequelize: connection,
+      tableName: 'techs'
     })
   }
 

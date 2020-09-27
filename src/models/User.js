@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize')
 
-class User extends Model{
-  static init(connection){
+class User extends Model {
+  static init(connection) {
     super.init({
       name: DataTypes.STRING,
       email: DataTypes.STRING,
@@ -10,11 +10,14 @@ class User extends Model{
     })
   }
 
-  static associate(models){
-    this.hasMany(models.Address, { foreignKey: 'user_id', as: 'addresses' })
-    this.belongsMany(models.Tech, { 
-      foreignKey: 'user_id', 
-      through: 'user_techs', 
+  static associate(models) {
+    this.hasMany(models.Address, {
+      foreignKey: 'user_id',
+      as: 'addresses'
+    })
+    this.belongsToMany(models.Tech, {
+      foreignKey: 'user_id',
+      through: 'user_techs',
       as: 'techs'
     })
   }
