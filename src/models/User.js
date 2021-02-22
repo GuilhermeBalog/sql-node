@@ -1,12 +1,21 @@
 const { Model, DataTypes } = require('sequelize')
+const Slugify = require('sequelize-slugify')
 
 class User extends Model {
   static init(connection) {
-    super.init({
+    const userModel = super.init({
       name: DataTypes.STRING,
       email: DataTypes.STRING,
+      slug: {
+        type: DataTypes.STRING,
+        unique: true,
+      }
     }, {
       sequelize: connection
+    })
+
+    Slugify.slugifyModel(userModel, {
+      source: ['name', 'id']
     })
   }
 
