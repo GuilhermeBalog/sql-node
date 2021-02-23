@@ -15,7 +15,7 @@ class User extends Model {
     })
 
     Slugify.slugifyModel(userModel, {
-      source: ['name', 'id']
+      source: ['name']
     })
   }
 

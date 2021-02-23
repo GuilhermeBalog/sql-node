@@ -27,6 +27,20 @@ const UserController = {
 
     return res.status(201).json(createdUser)
   },
+
+  async update(req, res) {
+    const { id } = req.params
+    const { name, email } = req.body
+    const user = await User.findByPk(id)
+
+    if(!user) {
+      return res.status(404).json({ error: 'User not found' })
+    }
+
+    const updateUser = await user.update({ name, email })
+
+    return res.json(updateUser)
+  }
 }
 
 module.exports = UserController

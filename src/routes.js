@@ -9,6 +9,7 @@ const routes = express.Router()
 
 routes.get('/users', UserController.index)
 routes.post('/users', UserController.store)
+routes.put('/users/:id', UserController.update)
 
 routes.get('/users/:user_id/addresses', AddressController.index)
 routes.post('/users/:user_id/addresses', AddressController.store)
